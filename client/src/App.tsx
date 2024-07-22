@@ -3,6 +3,7 @@
 import '@mantine/core/styles.css';
 import { Box, MantineProvider } from '@mantine/core';
 import useSWR from "swr";
+import AddTodo from "./components/AddTodo";
 
 export const ENDPOINT = 'http://localhost:4000'
 const fetcher = (url: string) => fetch(`${ENDPOINT}/${url}`).then((r) => r.json());
@@ -13,7 +14,10 @@ export default function App() {
 
   return (
     <MantineProvider>
-      <Box>{JSON.stringify(data)}</Box>
+      <Box>
+        {JSON.stringify(data)}
+        <AddTodo />
+      </Box>
     </MantineProvider>
   )
 }
